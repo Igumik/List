@@ -4,15 +4,13 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        int count = 1;
         Scanner scanner = new Scanner(System.in);
         String[] operations = {"добавить", "показать", "удалить", "найти"};
         System.out.println("Операции: ");
         for (int i = 0; i < operations.length; i++) {
-            System.out.println(count++ + ". " + operations[i]);
+            System.out.println((i + 1) + ". " + operations[i]);
         }
         List<String> basket = new ArrayList<>();
-
 
         while (true) {
             System.out.println();
@@ -25,16 +23,14 @@ public class Main {
                 System.out.println("Итого в списке покупок: " + basket.size());
             } else if ("2".equals(input)) {
                 System.out.println("Список покупок:");
-                int count1 = 1;
-                for (String s : basket) {
-                    System.out.println(count1++ + ". " + s);
+                for (int i = 0; i < basket.size(); i++) {
+                    System.out.println((i + 1) + ". " + basket.get(i));
                 }
             } else if ("3".equals(input)) {
                 try {
                     System.out.println("Список покупок:");
-                    int count1 = 1;
-                    for (String s : basket) {
-                        System.out.println(count1++ + ". " + s);
+                    for (int i = 0; i < basket.size(); i++) {
+                        System.out.println((i + 1) + ". " + basket.get(i));
                     }
                     System.out.println("Какую покупку хотите удалить? Введите номер или название");
                     input = scanner.nextLine();
@@ -45,20 +41,18 @@ public class Main {
                     System.out.println("Покупка " + input + " удалена, список покупок:");
                     basket.remove(input);
                 }
-                int count1 = 1;
-                for (String s : basket) {
-                    System.out.println(count1++ + ". " + s);
+                for (int i = 0; i < basket.size(); i++) {
+                    System.out.println((i + 1) + ". " + basket.get(i));
                 }
             } else if ("4".equals(input)) {
-                int count1 = 1;
                 System.out.println("Введите текст для поиска:");
                 input = scanner.nextLine();
                 System.out.println("Найдено:");
-                for (String s : basket) {
-                    String itemLower = s.toLowerCase();
+                for (int i = 0; i < basket.size(); i++) {
+                    String itemLower = basket.get(i).toLowerCase();
                     String queryLower = input.toLowerCase();
                     if (itemLower.contains(queryLower)) {
-                        System.out.println(count1++ + ". " + s);
+                        System.out.println((i + 1) + ". " + basket.get(i));
                     }
                 }
             }
